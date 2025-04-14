@@ -1,0 +1,13 @@
+package com.example.demo.repository;
+
+import com.example.demo.entity.Card;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import java.util.List;
+import java.util.UUID;
+
+public interface CardRepository extends JpaRepository<Card, UUID> {
+    Page<Card> findByUserId(UUID userId, Pageable pageable);
+}

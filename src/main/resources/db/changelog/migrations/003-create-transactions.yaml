@@ -1,0 +1,13 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-transactions-table
+      author: developer
+      changes:
+        - createTable:
+            tableName: transactions
+            columns:
+              - column: { name: id, type: bigserial, constraints: { primaryKey: true, nullable: false } }
+              - column: { name: timestamp, type: timestamp, constraints: { nullable: false } }
+              - column: { name: amount, type: decimal(19,2), constraints: { nullable: false } }
+              - column: { name: description, type: varchar(255) }
+              - column: { name: card_id, type: uuid, constraints: { nullable: false, foreignKeyName: fk_transaction_card, references: cards(id) } }

@@ -1,0 +1,7 @@
+databaseChangeLog:
+  - include:
+      file: migrations/001-create-users.yaml
+  - include:
+      file: migrations/002-create-cards.yaml
+  - include:
+      file: migrations/003-create-transactions.yaml

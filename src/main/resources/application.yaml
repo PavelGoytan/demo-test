@@ -1,0 +1,14 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5433/cards_db
+    username: postgres
+    password: postgres
+  jpa:
+    hibernate.ddl-auto: validate
+    show-sql: true
+  liquibase:
+    change-log: classpath:/migrations/db.changelog-master.yaml
+server:
+  port: 8080
+jwt:
+  secret-key: "очень_длинный_случайный_секрет_в_base64_формате"

@@ -1,0 +1,10 @@
+databaseChangeLog:
+  - changeSet:
+      id: add-limit-fields-to-cards
+      author: developer
+      changes:
+        - addColumn:
+            tableName: cards
+            columns:
+              - column: { name: daily_limit, type: decimal(19,2), defaultValueNumeric: 1000.00, constraints: { nullable: false } }
+              - column: { name: remaining_daily_limit, type: decimal(19,2), defaultValueNumeric: 1000.00, constraints: { nullable: false } }

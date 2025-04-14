@@ -1,0 +1,15 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-cards-table
+      author: developer
+      changes:
+        - createTable:
+            tableName: cards
+            columns:
+              - column: { name: id, type: uuid, constraints: { primaryKey: true, nullable: false } }
+              - column: { name: encrypted_card_number, type: varchar(255), constraints: { nullable: false, unique: true } }
+              - column: { name: card_holder, type: varchar(255), constraints: { nullable: false } }
+              - column: { name: expiration_date, type: date, constraints: { nullable: false } }
+              - column: { name: status, type: varchar(20), constraints: { nullable: false } }
+              - column: { name: balance, type: decimal(19,2), constraints: { nullable: false } }
+              - column: { name: user_id, type: uuid, constraints: { nullable: false, foreignKeyName: fk_card_user, references: users(id) } }
